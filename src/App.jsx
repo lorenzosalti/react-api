@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 
 import axios from "axios"
 
+import Card from "./components/Card"
+
 function App() {
 
   const [actresses, setActresses] = useState([])
@@ -28,15 +30,9 @@ function App() {
       <hr />
 
       <ul>
-        {actresses.map(actress => <li>
-          <h3>{actress.name}</h3>
-          <img src={actress.image} alt={actress.name} />
-          <p>Born in {actress.birth_year}</p>
-          <p>{actress.nationality}</p>
-          <p>{actress.biography}</p>
-          <p>{actress.awards}</p>
-        </li>)}
-      </ul>
+        {actresses.map(actress => <Card person={actress} key={actress.id} />)}
+      </ul >
+
     </>
   )
 }
